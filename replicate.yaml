@@ -1,0 +1,39 @@
+# Versión del esquema de configuración de Replicate
+build:
+  # Usa la versión de Python que recomienda el proyecto
+  python_version: "3.10"
+  
+  # Instala todas las dependencias que identificamos.
+  # Usamos las versiones exactas de pyproject.toml para garantizar la estabilidad.
+  python_packages:
+    - "accelerate==1.7.0"
+    - "bitsandbytes==0.44.1"
+    - "cached_path==1.7.3"
+    - "click==8.1.7"
+    - "datasets==3.0.1"
+    - "ema_pytorch==0.7.3"
+    - "gradio==3.45.2"
+    - "huggingface-hub==0.32.0"
+    - "jieba==0.42.1"
+    - "librosa==0.9.1"
+    - "matplotlib==3.9.2"
+    - "num2words==0.5.13"
+    - "numpy==1.26.4"
+    - "pydub==0.25.1"
+    - "pypinyin==0.53.0"
+    - "safetensors" # Instalamos la última versión compatible para evitar la compilación con Rust
+    - "soundfile==0.12.1"
+    - "tomli==2.0.2"
+    - "torch==2.7.0" # Usamos la versión sin CUDA ya que Replicate gestiona la GPU
+    - "torchaudio==2.7.0"
+    - "torchdiffeq==0.2.4"
+    - "tqdm==4.66.4"
+    - "transformers==4.51.3"
+    - "transformers_stream_generator==0.0.5"
+    - "vocos==0.1.0"
+    - "wandb==0.18.3"
+    - "x_transformers==2.4.1"
+    - "replicate" # El propio paquete de replicate
+
+# Define cómo se ejecutarán las predicciones
+predict: "predict.py:Predictor" 
